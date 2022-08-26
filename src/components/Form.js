@@ -3,15 +3,17 @@ import FilterHouse from './FilterHouse';
 
 const  Form = (props) => {
     
-  const { characterData } = props;
+  const { characterData, filterValues, updateFilterValues } = props;
 
-
+  const handleInput = (key, value) => {
+    updateFilterValues(key, value)
+  }
 
     return <form className='main__filters'>
        
-    <FilterName characterData={characterData}/>
+    <FilterName filterValues={filterValues} handleInput={handleInput} />
 
-    <FilterHouse characterData={characterData}/>
+    <FilterHouse filterValues={filterValues} handleInput={handleInput}/>
 
   </form>
 };

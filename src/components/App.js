@@ -9,24 +9,31 @@ import uuid from 'react-uuid';
 function App() {
 
   const [characterData, setCharacterData] = useState([]);
-  const [filterValues, setFilterValues] = useState({});
+  const [filterValues, setFilterValues] = useState({
+    name: '',
+    house: 'gryffindor'
+  });
 
   useEffect(() => {
     callToApi().then(response => {
-      const result = response.map((item,index) =>( {...response[index], "id":uuid()}))
+      const result = response.map((item) =>({...item, "id":uuid()}))
+        
       setCharacterData(result)
     });
-    
   }, []);
 
+
+  const updateFilterValues = (key, value) => {
+    setFilterValues({...filterValues, [key]:value})
+  }
 
   return (
     <div>
       <Header/>
 
       <main className='main'>
-        <Form characterData={characterData}/>
-        <CharacterList characterData={characterData} />
+        <Form characterData={characterData} filterValues={filterValues} updateFilterValues={updateFilterValues} />
+        <CharacterList characterData={characterData}  filterValues={filterValues}/>
       </main>
 
     </div>

@@ -1,8 +1,10 @@
 
 const  FilterName = (props) => {
 
+  const { filterValues, handleInput } = props;
+
   const handleInputName = (ev) => {
-    
+    handleInput(ev.target.name, ev.target.value)
   }
 
   return <div className='main__filter--name filter'>
@@ -11,11 +13,11 @@ const  FilterName = (props) => {
     type='text'
     name='name'
     id='name'
-    // value={}
+    value={filterValues.name}
     onChange={handleInputName}
     />
   </div>
 };
 
 
-export default FilterName;
+export default FilterName; 
