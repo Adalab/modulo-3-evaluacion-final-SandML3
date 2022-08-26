@@ -1,8 +1,11 @@
 import '../styles/App.scss';
 
 import callToApi from '../services/api';
+import ls from '../services/ls';
+
 import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import {useLocation, matchPath} from 'react-router';
 
 import uuid from 'react-uuid';
 
@@ -11,13 +14,13 @@ import Form from './Form';
 import CharacterList from './CharacterList';
 import CharacterDetail from './CharacterDetail';
 
-import {useLocation, matchPath} from 'react-router';
+
 
 
 
 function App() {
 
-  const [characterData, setCharacterData] = useState([]);
+  const [characterData, setCharacterData] = useState(ls.get('characterData', [] || []));
   const [filterValues, setFilterValues] = useState({
     name: '',
     house: 'gryffindor'
@@ -30,6 +33,11 @@ function App() {
       setCharacterData(result)
     });
   }, []);
+
+  useEffect(() => {
+    ls.set('characterData', characterData);
+
+  }, [characterData]);
 
 
   const updateFilterValues = (key, value) => {
@@ -67,7 +75,7 @@ function App() {
 
         <Route 
         path='/character/:characterId' 
-         element={<CharacterDetail characterFound={characterFound} characterData={characterData}/>}
+         element={<CharacterDetail characterFound={characterFound} />}
         />
 
       </Routes>
