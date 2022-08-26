@@ -3,7 +3,7 @@ import FilterHouse from './FilterHouse';
 
 const  Form = (props) => {
     
-  const { characterData, filterValues, updateFilterValues } = props;
+  const { filterValues, updateFilterValues } = props;
 
   const handleInput = (key, value) => {
     updateFilterValues(key, value)
