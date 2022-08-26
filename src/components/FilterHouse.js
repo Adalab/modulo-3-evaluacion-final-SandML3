@@ -4,7 +4,9 @@ const  FilterHouse = (props) => {
   const { filterValues, handleInput } = props;
 
   const handleInputHouse = (ev) => {
-    handleInput(ev.target.name, ev.target.value)
+    ev.target.value !== 'all'
+      ?handleInput(ev.target.name, ev.target.value)
+      :handleInput(ev.target.name, '')
   }
 
     return <div className='main__filter--house filter'>
