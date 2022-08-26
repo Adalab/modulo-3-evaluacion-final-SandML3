@@ -20,11 +20,11 @@ import CharacterDetail from './CharacterDetail';
 
 function App() {
 
-  const [characterData, setCharacterData] = useState(ls.get('characterData', [] || []));
-  const [filterValues, setFilterValues] = useState({
+  const [characterData, setCharacterData] = useState(ls.get('characterData', []));
+  const [filterValues, setFilterValues] = useState(ls.get('filtersData', {
     name: '',
     house: 'gryffindor'
-  });
+  }));
 
   useEffect(() => {
     callToApi().then(response => {
@@ -36,8 +36,12 @@ function App() {
 
   useEffect(() => {
     ls.set('characterData', characterData);
-
   }, [characterData]);
+
+
+  useEffect(() => {
+    ls.set('filtersData', filterValues);
+  }, [filterValues]);
 
 
   const updateFilterValues = (key, value) => {
