@@ -1,25 +1,16 @@
-import { Link } from 'react-router-dom';
-// import { useLocation } from 'react-router';
-// import { useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import callToApi from '../services/api';
 
 
-
-const  CharacterDetail = (props) => {
+const  CharacterDetail = ( { characterFound } ) => {
+  
+  const { characterId } = useParams();
  
-  const { characterFound } = props;
-  // const { pathname } = useLocation();
-  // const dataPath = matchPath('character/:characterId', pathname)
+  const character = !characterFound
+    ?callToApi().then(response => response[characterId])
+    :characterFound;
 
-  // const characterId = dataPath !== null
-  //   ?dataPath.params.characterId
-  //   :null;
-
-  // const newCharacterFound = props.characterData.find(item => item.id === characterId);
-
-  // const character = characterFound
-  //   ?characterFound
-  //   :newCharacterFound
- 
+  const actorNameUrl = character.actor.replace(/ /g, "_")
 
   return <>
     <Link 
@@ -28,18 +19,32 @@ const  CharacterDetail = (props) => {
         
     <div className="character__detail">
         <section className='character__detail__card'>
-            <img className='character__detail__card__image' src={characterFound.image} alt={`Imagen de ${characterFound.name}`}  title={`Imagen de ${characterFound.name}`}/>
-            <h3 className='character__detail__card__name'>{characterFound.name}</h3>
-            <p className='character__detail__card__actor'>{characterFound.alive}</p>
-            <p className='character__detail__card__actor'>{characterFound.actor}</p>
-            <p className='character__detail__card__specie'>{characterFound.species}</p>
-            <p className='character__detail__card__gender'>{characterFound.gender}</p>
-            <p className='character__detail__card__house'>{characterFound.house}</p>
+            <img className='character__detail__card__image' src={character.image} alt={`Imagen de ${character.name}`}  title={`Imagen de ${character.name}`}/>
+            <h3 className='character__detail__card__name'>{character.name}</h3>
+            <p className='character__detail__card__actor'>{character.alive}</p>
+            <p className='character__detail__card__actor'>{character.actor}</p>
+            <a href={`https://es.wikipedia.org/wiki/${actorNameUrl}`}  target="_blank" rel="noopener noreferrer">Más información sobre {character.actor} </a>
+            <p className='character__detail__card__specie'>{character.species}</p>
+            <p className='character__detail__card__gender'>{character.gender}</p>
+            <p className='character__detail__card__house'>{character.house}</p>
         
         </section>
      </div>
   </>
 };
 
+
+// CharacterDetail.defaultProps = {
+//   characterFound: {
+//     actor: "Daniel Radcliffe",
+//     alive: true,
+//     gender: "male",
+//     house: "Gryffindor",
+//     id: "4c7e4d-0e56-1d8d-e077-f6ec01e565",
+//     image: "http://hp-api.herokuapp.com/images/harry.jpg",
+//     name: "Harry Potter",
+//     species: "human"
+//   },
+// };
 
 export default CharacterDetail;

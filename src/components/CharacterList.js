@@ -25,7 +25,7 @@ const CharacterList = (props) => {
         :character.house.toLowerCase().includes(filterValues.house.toLowerCase()))
 
     .map((character) => <li key={character.id} className='main__character__list__item'>
-        <CharacterCard name={character.name}  image={character.image} species={character.species} id={character.id} />
+        <CharacterCard character={character} />
     </li> );
 
 

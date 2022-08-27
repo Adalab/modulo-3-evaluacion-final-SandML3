@@ -1,7 +1,7 @@
 import '../styles/App.scss';
 
 import callToApi from '../services/api';
-import ls from '../services/ls';
+import ls from '../services/localstorage';
 
 import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
@@ -29,7 +29,7 @@ function App() {
 
   useEffect(() => {
     callToApi().then(response => {
-      const result = response.map((item) =>({...item, "id":uuid()}))
+      const result = response.map((item, index) =>({...item, "id":uuid() , 'index': index}))
       
       setCharacterData(result)
     });
@@ -63,12 +63,13 @@ function App() {
   // console.log(pathname)
 
   const dataPath = matchPath('character/:characterId', pathname)
-
+  // console.log(dataPath)
+  
   const characterId = dataPath !== null
     ?dataPath.params.characterId
     :null;
 
-  const characterFound = characterData.find(character => character.id === characterId);
+  const characterFound = characterData.find(character => character.index.toString() === characterId);
 
 
   return (
@@ -90,8 +91,16 @@ function App() {
 
         <Route 
         path='/character/:characterId' 
-         element={<CharacterDetail characterData={characterData} characterFound={characterFound} />}
+         element={<CharacterDetail characterData={characterData} 
+         characterFound={characterFound} 
+         />}
         />
+
+        {/* <Route 
+        path='*' 
+         element={<h1>Not Found</h1>}
+        /> */}
+
 
       </Routes>
 
