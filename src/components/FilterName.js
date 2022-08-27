@@ -5,7 +5,13 @@ const  FilterName = (props) => {
 
   const handleInputName = (ev) => {
     handleInput(ev.target.name, ev.target.value)
-  }
+  };
+
+  const handleEnter = (ev) => {
+    if (ev.key === 'Enter') {
+      ev.preventDefault()
+    }
+  };
 
   return <div className='main__filter--name filter'>
     <label className='main__filter__label--name label' htmlFor='name'>Buscar personajes por nombre:</label>
@@ -15,6 +21,7 @@ const  FilterName = (props) => {
     id='name'
     value={filterValues.name}
     onChange={handleInputName}
+    onKeyPress={handleEnter}
     />
   </div>
 };

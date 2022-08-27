@@ -15,9 +15,6 @@ import CharacterList from './CharacterList';
 import CharacterDetail from './CharacterDetail';
 
 
-
-
-
 function App() {
 
   const [characterData, setCharacterData] = useState(ls.get('characterData', []));
@@ -79,7 +76,7 @@ function App() {
 
         <Route 
         path='/character/:characterId' 
-         element={<CharacterDetail characterFound={characterFound} />}
+         element={<CharacterDetail characterData={characterData} characterFound={characterFound} />}
         />
 
       </Routes>
