@@ -1,7 +1,7 @@
 import FilterName from './FormComponents/FilterName';
-import FilterHouse from './FormComponents/FilterHouse';
 import AlphabeticalSort from './FormComponents/AlphabeticalSort';
 import ButtonReset from './FormComponents/ButtonReset';
+import GenericSelect from './FormComponents/GenericSelect';
 
 const  Form = (props) => {
     
@@ -15,9 +15,13 @@ const  Form = (props) => {
        
     <FilterName filterValues={filterValues} handleInput={handleInput} />
 
-    <FilterHouse filterValues={filterValues} handleInput={handleInput}/>
+    <GenericSelect name='house' options={['Todas','Gryffindor', 'Ravenclaw', 'Hufflepuff', 'Slytherin']} values={['all','gryffindor', 'ravenclaw', 'hufflepuff', 'slytherin']} filterValues={filterValues} handleInput={handleInput} labelText='Selecciona la casa:'/>
+
 
     <AlphabeticalSort filterValues={filterValues} handleInput={handleInput}/>
+
+    <GenericSelect name='gender' options={['Todos','Femenino', 'Masculino']} values={['all','female', 'male']} filterValues={filterValues} handleInput={handleInput} labelText='Seleccionar por género:'/>
+
 
     <ButtonReset resetFilterValues={resetFilterValues}/>
 

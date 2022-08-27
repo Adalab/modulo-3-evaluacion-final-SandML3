@@ -10,19 +10,24 @@ const CharacterList = (props) => {
     ?[...characterData].sort((a, b) => a.name > b.name ? 1 : a.name < b.name ? -1 : 0)
     :characterData;
 
-// console.log(characterData)    
-// console.log(filterValues.sort) 
 
   const renderCharacters = character
-    // .sort((a, b) => a.name > b.name ? 1 : a.name < b.name ? -1 : 0)
-    
+  .filter(item => 
+    filterValues.gender === 'all'
+      ?true
+      :item.gender ===filterValues.gender)
+      
     .filter(character => character.name.toLowerCase().includes(filterValues.name.toLowerCase()))
 
-    .filter(character => character.house.toLowerCase().includes(filterValues.house.toLowerCase()))
+    .filter(character => 
+      filterValues.house.toLowerCase() === 'all'
+        ?true
+        :character.house.toLowerCase().includes(filterValues.house.toLowerCase()))
 
     .map((character) => <li key={character.id} className='main__character__list__item'>
         <CharacterCard name={character.name}  image={character.image} species={character.species} id={character.id} />
     </li> );
+
 
   const isEmptyRender = renderCharacters.length !== 0
         ?renderCharacters

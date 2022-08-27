@@ -22,7 +22,8 @@ function App() {
   const [filterValues, setFilterValues] = useState(ls.get('filtersData', {
     name: '',
     house: 'gryffindor',
-    sort: false
+    sort: false,
+    gender: 'all'
   }));
 
 
@@ -53,7 +54,8 @@ function App() {
     setFilterValues({
       name: '',
       house: 'gryffindor',
-      sort: false
+      sort: false,
+      gender: 'all'
     })
   };
 
