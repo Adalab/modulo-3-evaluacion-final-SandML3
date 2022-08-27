@@ -1,5 +1,6 @@
 import FilterName from './FilterName';
 import FilterHouse from './FilterHouse';
+import AlphabeticalSort from './AlphabeticalSort';
 
 const  Form = (props) => {
     
@@ -14,6 +15,8 @@ const  Form = (props) => {
     <FilterName filterValues={filterValues} handleInput={handleInput} />
 
     <FilterHouse filterValues={filterValues} handleInput={handleInput}/>
+
+    <AlphabeticalSort filterValues={filterValues} handleInput={handleInput}/>
 
   </form>
 };

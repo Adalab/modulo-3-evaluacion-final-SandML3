@@ -18,18 +18,22 @@ import CharacterDetail from './CharacterDetail';
 function App() {
 
   const [characterData, setCharacterData] = useState(ls.get('characterData', []));
+  
   const [filterValues, setFilterValues] = useState(ls.get('filtersData', {
     name: '',
-    house: 'gryffindor'
+    house: 'gryffindor',
+    sort: false
   }));
+
 
   useEffect(() => {
     callToApi().then(response => {
       const result = response.map((item) =>({...item, "id":uuid()}))
-        
+      
       setCharacterData(result)
     });
   }, []);
+
 
   useEffect(() => {
     ls.set('characterData', characterData);
