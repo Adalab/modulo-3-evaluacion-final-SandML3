@@ -49,6 +49,14 @@ function App() {
     setFilterValues({...filterValues, [key]:value})
   };
 
+  const resetFilterValues = () => {
+    setFilterValues({
+      name: '',
+      house: 'gryffindor',
+      sort: false
+    })
+  };
+
   const { pathname } = useLocation();
   // console.log(pathname)
 
@@ -71,7 +79,7 @@ function App() {
 
           <main className='main'>
 
-            <Form characterData={characterData} filterValues={filterValues} updateFilterValues={updateFilterValues} />
+            <Form characterData={characterData} filterValues={filterValues} updateFilterValues={updateFilterValues} resetFilterValues={resetFilterValues}/>
 
             <CharacterList characterData={characterData}  filterValues={filterValues}/>
           </main>

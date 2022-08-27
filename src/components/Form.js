@@ -1,10 +1,11 @@
-import FilterName from './FilterName';
-import FilterHouse from './FilterHouse';
-import AlphabeticalSort from './AlphabeticalSort';
+import FilterName from './FormComponents/FilterName';
+import FilterHouse from './FormComponents/FilterHouse';
+import AlphabeticalSort from './FormComponents/AlphabeticalSort';
+import ButtonReset from './FormComponents/ButtonReset';
 
 const  Form = (props) => {
     
-  const { filterValues, updateFilterValues } = props;
+  const { filterValues, updateFilterValues, resetFilterValues } = props;
 
   const handleInput = (key, value) => {
     updateFilterValues(key, value)
@@ -17,6 +18,8 @@ const  Form = (props) => {
     <FilterHouse filterValues={filterValues} handleInput={handleInput}/>
 
     <AlphabeticalSort filterValues={filterValues} handleInput={handleInput}/>
+
+    <ButtonReset resetFilterValues={resetFilterValues}/>
 
   </form>
 };
