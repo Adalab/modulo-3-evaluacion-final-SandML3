@@ -1,16 +1,29 @@
 import { Link } from 'react-router-dom';
+import '../styles/CharacterCard.scss';
+
 
 
 const  CharacterCard = (props) => {
 
     
 
-    return <Link to={`/character/${props.character.index}`}>
+    const handleClick = (ev) => {
+       props.updateFilterValues('character', ev.target.id)
+    }
+
+
+    return <Link  className='link' to={`/character/${props.character.index}`} onClick={handleClick} id={props.character.index}>
         <section className='main__character__list__card'>
-            <img className='main__character__list__card__image' src={props.character.image} alt={`Imagen de ${props.character.name}`}  title={`Imagen de ${props.character.name}`}/>
-            <h3 className='main__character__list__card__name'>{props.character.name}</h3>
-            <p className='main__character__list__card__specie'>{props.character.species}</p>
-            </section>
+            <div className="main__character__list__card__image--wrapper">
+                <img className='main__character__list__card__image' src={props.character.image} alt={`Imagen de ${props.character.name}`}  title={`Imagen de ${props.character.name}`}/>
+            </div>
+            
+            <div className='main__character__list__card__text'>
+                <h3 className='main__character__list__card__name text'>{props.character.name}</h3>
+                <p className='main__character__list__card__specie text'>{props.character.species}</p>
+            </div>
+        </section>
+            
     </Link>
 };
 

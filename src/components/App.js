@@ -1,10 +1,9 @@
 import '../styles/App.scss';
-
 import callToApi from '../services/api';
 import ls from '../services/localstorage';
 
 import { useEffect, useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes,useSearchParams } from 'react-router-dom';
 import {useLocation, matchPath} from 'react-router';
 
 import uuid from 'react-uuid';
@@ -13,18 +12,21 @@ import Header from './Header';
 import Form from './Form';
 import CharacterList from './CharacterList';
 import CharacterDetail from './CharacterDetail';
+import NotFound from './NotFound';
 
 
 function App() {
 
   const [characterData, setCharacterData] = useState(ls.get('characterData', []));
   
-  const [filterValues, setFilterValues] = useState(ls.get('filtersData', {
-    name: '',
-    house: 'gryffindor',
-    sort: false,
-    gender: 'all'
-  }));
+
+  const [searchParams, setSearchParams] = useSearchParams({
+      name: '',
+      house: 'gryffindor',
+      sort: false,
+      gender: 'all',
+      character: ''
+    });
 
 
   useEffect(() => {
@@ -41,39 +43,32 @@ function App() {
   }, [characterData]);
 
 
-  useEffect(() => {
-    ls.set('filtersData', filterValues);
-  }, [filterValues]);
-
 
   const updateFilterValues = (key, value) => {
-    setFilterValues({...filterValues, [key]:value})
+    searchParams.set(key, value)
+    setSearchParams(searchParams);
   };
 
   const resetFilterValues = () => {
-    setFilterValues({
-      name: '',
-      house: 'gryffindor',
-      sort: false,
-      gender: 'all'
-    })
+    setSearchParams('')
   };
 
   const { pathname } = useLocation();
-  // console.log(pathname)
 
   const dataPath = matchPath('character/:characterId', pathname)
-  // console.log(dataPath)
-  
-  const characterId = dataPath !== null
+
+  const characterId = dataPath !== null 
     ?dataPath.params.characterId
-    :null;
+    :null
+  
+    console.log(characterId)
+    console.log(pathname)
 
   const characterFound = characterData.find(character => character.index.toString() === characterId);
 
 
   return (
-    <div>
+    <div className='page'>
       <Routes>
         <Route 
         path='/' 
@@ -82,9 +77,17 @@ function App() {
 
           <main className='main'>
 
-            <Form characterData={characterData} filterValues={filterValues} updateFilterValues={updateFilterValues} resetFilterValues={resetFilterValues}/>
+            <Form 
+            characterData={characterData}
+            updateFilterValues={updateFilterValues} 
+            resetFilterValues={resetFilterValues}
+            searchParams={searchParams}/>
 
-            <CharacterList characterData={characterData}  filterValues={filterValues}/>
+            <CharacterList 
+            characterData={characterData}  
+            updateFilterValues={updateFilterValues}
+            searchParams={searchParams}/>
+
           </main>
         </>}
         />
@@ -96,10 +99,7 @@ function App() {
          />}
         />
 
-        {/* <Route 
-        path='*' 
-         element={<h1>Not Found</h1>}
-        /> */}
+        <Route path='*' element={<NotFound/>}/>
 
 
       </Routes>

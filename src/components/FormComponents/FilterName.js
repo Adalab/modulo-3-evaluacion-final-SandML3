@@ -1,10 +1,9 @@
 
-const  FilterName = (props) => {
+const  FilterName = ({ searchParams, handleInput, updateFilterValues }) => {
 
-  const { filterValues, handleInput } = props;
 
   const handleInputName = (ev) => {
-    handleInput(ev.target.name, ev.target.value)
+    updateFilterValues(ev.target.name, ev.target.value)
   };
 
   const handleEnter = (ev) => {
@@ -19,7 +18,7 @@ const  FilterName = (props) => {
     type='text'
     name='name'
     id='name'
-    value={filterValues.name}
+    value={searchParams.get('name')}
     onChange={handleInputName}
     onKeyPress={handleEnter}
     />

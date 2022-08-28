@@ -1,20 +1,26 @@
-const  AlphabeticalSort = (props) => {
 
-    const { filterValues, handleInput } = props;
-  
+const  AlphabeticalSort = ({ handleInput,  searchParams, updateFilterValues }) => {
+   
+    const value = searchParams.get('sort') === 'true'
+      ?true
+      :false
+
     const handleInputSort = (ev) => {
-        handleInput(ev.target.name, !filterValues.sort)
+      updateFilterValues(ev.target.name, !value)
     };
   
     return <div className='main__filter--sort filter'>
+
       <label className='main__filter__label--sort label' htmlFor='name'>Ordenar alfabéticamente:</label>
+
       <input
       type='checkbox'
       name='sort'
       id='sort'
-      checked={filterValues.sort}
+      checked={value}
       onChange={handleInputSort}
       />
+      
     </div>
   };
   

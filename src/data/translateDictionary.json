@@ -1,0 +1,44 @@
+{
+    "alive": { 
+        "true":{
+            "male":"Vivo",
+            "female":"Viva"
+        },
+
+        "false":{
+            "male":"Muerto",
+            "female":"Muerta"
+        }
+    },
+
+
+    "species": {
+        "human": {
+            "male":"Humano",
+            "female":"Humana"
+        },
+
+        "half-giant": "Semigigante",
+        "werewolf": "Hombre-lobo",
+        "cat": "Gato",
+        "goblin": "Duende",
+        "owl": "Búho",
+        "ghost": "Fantasma",
+        "poltergeist": "Espíritu",
+        "three-headed dog": "Perro de tres cabezas",
+        "dragon": "Dragon",
+        "centaur": "Centauro",
+        "house-elf": "Elfo doméstico",
+        "acromantula": "Acromántula",
+        "hippogriff": "Hipogrifo",
+        "giant": "Gigante",
+        "vampire": "Vampiro",
+        "half-human": "Medio-humano"
+    },
+
+
+    "gender": {
+        "male": "Hombre",
+        "female": "Mujer"
+    }
+}

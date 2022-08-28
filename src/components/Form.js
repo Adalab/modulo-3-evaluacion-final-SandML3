@@ -2,26 +2,43 @@ import FilterName from './FormComponents/FilterName';
 import AlphabeticalSort from './FormComponents/AlphabeticalSort';
 import ButtonReset from './FormComponents/ButtonReset';
 import GenericSelect from './FormComponents/GenericSelect';
+import '../styles/Form.scss'
+
 
 const  Form = (props) => {
     
-  const { filterValues, updateFilterValues, resetFilterValues } = props;
+  const { updateFilterValues, resetFilterValues, searchParams } = props;
 
-  const handleInput = (key, value) => {
-    updateFilterValues(key, value)
-  }
 
     return <form className='main__filters'>
        
-    <FilterName filterValues={filterValues} handleInput={handleInput} />
+    <FilterName 
+    searchParams={searchParams} 
+    updateFilterValues={updateFilterValues}
+    />
 
-    <GenericSelect name='house' options={['Todas','Gryffindor', 'Ravenclaw', 'Hufflepuff', 'Slytherin']} values={['all','gryffindor', 'ravenclaw', 'hufflepuff', 'slytherin']} filterValues={filterValues} handleInput={handleInput} labelText='Selecciona la casa:'/>
+    <GenericSelect 
+    name='house' 
+    options={['Todas','Gryffindor', 'Ravenclaw', 'Hufflepuff', 'Slytherin']} values={['all','gryffindor', 'ravenclaw', 'hufflepuff', 'slytherin']} 
+    labelText='Selecciona la casa:'
+    value={searchParams.get('house')} 
+    updateFilterValues={updateFilterValues}
+    />
 
 
-    <AlphabeticalSort filterValues={filterValues} handleInput={handleInput}/>
+    <AlphabeticalSort 
+    updateFilterValues={updateFilterValues}
+    searchParams={searchParams}
+    />
 
-    <GenericSelect name='gender' options={['Todos','Femenino', 'Masculino']} values={['all','female', 'male']} filterValues={filterValues} handleInput={handleInput} labelText='Seleccionar por género:'/>
-
+    <GenericSelect 
+    name='gender' 
+    options={['Todos','Femenino', 'Masculino']} 
+    values={['all','female', 'male']} 
+    labelText='Seleccionar por género:' 
+    searchParams={searchParams}
+    updateFilterValues={updateFilterValues}
+    />
 
     <ButtonReset resetFilterValues={resetFilterValues}/>
 

@@ -1,0 +1,75 @@
+
+.main__character__list__card {
+    // width: 15.4rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: 1rem;
+    // border-radius: 0.5rem;
+    
+    &__image--wrapper {
+        height: 20rem;
+        width: 15rem;
+        overflow: hidden;
+        border-radius: 1rem;
+        display: flex;
+        justify-content: center;
+       
+    }
+  
+
+    &__image {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: top;
+        // position: relative;
+        // right: 5%;
+
+
+        // mix-blend-mode: overlay;
+        // filter: grayscale(100);
+
+    
+    }
+
+
+
+    &__text {
+        width: 15rem;
+        height: 5rem;
+        position: absolute;
+        bottom: -2%;
+        left: 10%;
+        border-radius: 1rem;
+        box-shadow: -1px 20px 39px -24px rgb(66, 68, 68);
+
+        background-color: #ffffff;
+        background-image: url("https://www.transparenttextures.com/patterns/billie-holiday.png");
+
+
+
+    }
+
+    &__name {
+        text-align: center;
+        font-size: 1.2rem;
+        color: rgb(71, 71, 71);
+        font-weight: 800;
+        margin-top: 1rem;
+        margin-bottom: 0.2rem;
+    }
+
+    &__specie {
+        color: rgb(114, 114, 114);
+        text-align: center;
+        font-size: 1rem;
+        text-transform: capitalize;
+    
+    }
+
+    .text {
+        justify-content: center;
+    }
+
+}
