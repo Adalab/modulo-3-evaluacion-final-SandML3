@@ -3,8 +3,8 @@ import callToApi from '../services/api';
 import ls from '../services/localstorage';
 
 import { useEffect, useState } from 'react';
-import { Route, Routes,useSearchParams } from 'react-router-dom';
-import {useLocation, matchPath} from 'react-router';
+import { Navigate, Route, Routes,useSearchParams } from 'react-router-dom';
+import { useLocation, matchPath } from 'react-router-dom';
 
 import uuid from 'react-uuid';
 
@@ -42,6 +42,9 @@ function App() {
     ls.set('characterData', characterData);
   }, [characterData]);
 
+  useEffect(() => {
+    ls.set('filtersValues', searchParams);
+  }, [searchParams]);
 
 
   const updateFilterValues = (key, value) => {
@@ -58,13 +61,11 @@ function App() {
   const dataPath = matchPath('character/:characterId', pathname)
 
   const characterId = dataPath !== null 
-    ?dataPath.params.characterId
+    ?dataPath.params.characterId 
     :null
-  
-    console.log(characterId)
-    console.log(pathname)
 
   const characterFound = characterData.find(character => character.index.toString() === characterId);
+
 
 
   return (
@@ -94,9 +95,10 @@ function App() {
 
         <Route 
         path='/character/:characterId' 
-         element={<CharacterDetail characterData={characterData} 
-         characterFound={characterFound} 
-         />}
+         element={characterFound 
+            ?<CharacterDetail characterData={characterData} characterFound={characterFound} />
+            :<Navigate to='*'/>
+        }
         />
 
         <Route path='*' element={<NotFound/>}/>
