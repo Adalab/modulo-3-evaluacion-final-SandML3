@@ -2,10 +2,11 @@
 import CharacterCard from './CharacterCard';
 import CharacterNotFound from './CharacterNotFound';
 import '../styles/CharacterList.scss';
+import Loader from './Loader'
 
 
 
-const CharacterList = ( {characterData, updateFilterValues, searchParams }) => {
+const CharacterList = ( {characterData, updateFilterValues, searchParams, loading }) => {
 
 
   //Alphabetical  order handler.
@@ -41,13 +42,15 @@ const CharacterList = ( {characterData, updateFilterValues, searchParams }) => {
         :<CharacterNotFound searchParams={searchParams}/>
 
 
-
+  const renderCharacterList = loading
+    ?<Loader></Loader>
+    :<ul className='main__characters__list'>
+      {isEmptyRender}
+    </ul>
 
   return <section className='main__characters'>
         <h2 className='main__characters__title'>Personajes</h2>
-        <ul className='main__characters__list'>
-            {isEmptyRender}
-        </ul>
+        {renderCharacterList}
     </section> 
 };
 

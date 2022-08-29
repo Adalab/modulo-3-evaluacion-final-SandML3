@@ -18,25 +18,23 @@ import NotFound from './NotFound';
 function App() {
 
   const [characterData, setCharacterData] = useState(ls.get('characterData', []));
+
+  const [loading, setLoading] = useState(false);
   
-  // const [ filterValues, setFilterValues ] = useState(ls.get ('filterValues', {}));
-
-
   const [searchParams, setSearchParams] = useSearchParams({
     name: '',
     house: 'gryffindor',
     sort: false,
     gender: 'all',
-  //   character: ''
   });
 
-  
 
   useEffect(() => {
+    setLoading(true);
     callToApi().then(response => {
-      const result = response.map((item, index) =>({...item, "id":uuid() , 'index': index}))
-      
-      setCharacterData(result)
+      const result = response.map((item, index) =>({...item, "id":uuid() , 'index': index}));
+      setCharacterData(result);
+      setLoading(true);
     });
   }, []);
 
@@ -46,45 +44,20 @@ function App() {
   }, [characterData]);
 
 
-  // useEffect(() => {
-  //   ls.set('filterValues', filterValues);
-  // }, [filterValues]);
-
-
-
-  // useEffect(() => {
-  //   ls.set('searchParams', {
-  //     name: searchParams.get('name'),
-  //     house: searchParams.get('house'),
-  //     sort:  searchParams.get('sort'),
-  //     gender: searchParams.get('gender'),
-  //     // character:  searchParams.get('character')
-  //   });
-  // }, [searchParams]);
-  
 
   const updateFilterValues = (key, value) => {
     searchParams.set(key, value)
     setSearchParams(searchParams);
-    // setFilterValues({...filterValues, [key]:value})
   };
+
 
   const resetFilterValues = () => {
     setSearchParams({
       name: '',
       house: 'gryffindor',
       sort: false,
-      gender: 'all',
-      // character: ''
+      gender: 'all'
     });
-
-    // setFilterValues({
-    //   name: '',
-    //   house: 'gryffindor',
-    //   sort: false,
-    //   gender: 'all',
-    //   // character: ''
-    // })
   };
 
   const { pathname } = useLocation();
@@ -98,6 +71,10 @@ function App() {
   const characterFound = characterData.find(character => character.index.toString() === characterId);
 
 
+ 
+
+
+  
   return (
     <div className='page'>
       <Routes>
@@ -119,6 +96,7 @@ function App() {
             characterData={characterData}  
             updateFilterValues={updateFilterValues}
             searchParams={searchParams}
+            loading={loading}
             />
 
           </main>

@@ -1,5 +1,5 @@
 import '../styles/CharacterCard.scss';
-import { LinkWithQuery } from './LinkWithQuery';
+import { LinkWithQuery } from './Custom Hook/LinkWithQuery';
 
 
 

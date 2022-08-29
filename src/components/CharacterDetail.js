@@ -1,6 +1,6 @@
 import dictionary from '../data/translateDictionary.json'
 import '../styles/CardDetail.scss';
-import { LinkWithQuery } from './LinkWithQuery';
+import { LinkWithQuery } from './Custom Hook/LinkWithQuery';
 
 
 
