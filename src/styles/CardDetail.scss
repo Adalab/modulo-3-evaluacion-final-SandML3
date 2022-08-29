@@ -52,19 +52,32 @@
             grid-column: 2;
             color: white;
             font-size: 1.5rem;
- 
          }
 
-        &__text {
-           grid-column: 2;
+        &__alternate_names {
 
         }
 
-        // &__alive {
-        //     grid-column: 2;
- 
-        //  }
+        &__text {
+           grid-column: 2;
+           max-width: 22rem;
 
+        }
+
+        &__alive {
+            grid-column: 2;
+        }
+
+        .fa-solid {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            padding-left: 0.5rem;
+        }
+
+        &__actor--wiki {
+            color: rgb(76, 87, 97);
+            font-size: 0.9rem;
+        }
         //  &__actor {
         //     grid-column: 2;
  

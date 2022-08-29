@@ -38,7 +38,7 @@
 
 
     "gender": {
-        "male": "Hombre",
-        "female": "Mujer"
+        "male": "Masculino",
+        "female": "Femenino"
     }
 }

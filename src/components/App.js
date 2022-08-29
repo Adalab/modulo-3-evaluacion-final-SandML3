@@ -3,7 +3,7 @@ import callToApi from '../services/api';
 import ls from '../services/localstorage';
 
 import { useEffect, useState } from 'react';
-import { Navigate, Route, Routes,useSearchParams } from 'react-router-dom';
+import { Route, Routes,useSearchParams } from 'react-router-dom';
 import { useLocation, matchPath } from 'react-router-dom';
 
 import uuid from 'react-uuid';
@@ -34,7 +34,7 @@ function App() {
     callToApi().then(response => {
       const result = response.map((item, index) =>({...item, "id":uuid() , 'index': index}));
       setCharacterData(result);
-      setLoading(true);
+      setLoading(false);
     });
   }, []);
 
@@ -44,12 +44,10 @@ function App() {
   }, [characterData]);
 
 
-
   const updateFilterValues = (key, value) => {
     searchParams.set(key, value)
     setSearchParams(searchParams);
   };
-
 
   const resetFilterValues = () => {
     setSearchParams({
@@ -61,20 +59,19 @@ function App() {
   };
 
   const { pathname } = useLocation();
-
   const dataPath = matchPath('character/:characterId', pathname)
 
-  const characterId = dataPath !== null 
+  const getCharacter = () => {
+    const characterId = dataPath !== null 
     ?dataPath.params.characterId 
     :null
 
-  const characterFound = characterData.find(character => character.index.toString() === characterId);
+    return characterData.find(character => character.index.toString() === characterId);
+  }
+  
 
 
  
-
-
-  
   return (
     <div className='page'>
       <Routes>
@@ -105,9 +102,9 @@ function App() {
 
         <Route 
         path='/character/:characterId' 
-         element={characterFound 
-            ?<CharacterDetail characterData={characterData} characterFound={characterFound} />
-            :<Navigate to='*'/>
+         element={getCharacter() 
+            ?<CharacterDetail characterData={characterData} characterFound={getCharacter()} />
+            :<p>El personaje que buscas no existe</p>
         }
         />
 
