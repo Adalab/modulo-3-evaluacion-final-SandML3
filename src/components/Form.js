@@ -7,22 +7,22 @@ import '../styles/Form.scss'
 
 const  Form = (props) => {
     
-  const { updateFilterValues, resetFilterValues, searchParams } = props;
+  const { updateFilterValues, resetFilterValues, filterValues, searchParams } = props;
 
 
     return <form className='main__filters'>
        
     <FilterName 
-    searchParams={searchParams} 
     updateFilterValues={updateFilterValues}
+    searchParams={searchParams}
     />
 
     <GenericSelect 
     name='house' 
     options={['Todas','Gryffindor', 'Ravenclaw', 'Hufflepuff', 'Slytherin']} values={['all','gryffindor', 'ravenclaw', 'hufflepuff', 'slytherin']} 
     labelText='Selecciona la casa:'
-    value={searchParams.get('house')} 
     updateFilterValues={updateFilterValues}
+    value={searchParams.get('house')}
     />
 
 
@@ -35,9 +35,9 @@ const  Form = (props) => {
     name='gender' 
     options={['Todos','Femenino', 'Masculino']} 
     values={['all','female', 'male']} 
-    labelText='Seleccionar por género:' 
-    searchParams={searchParams}
+    labelText='Seleccionar por género:'  
     updateFilterValues={updateFilterValues}
+    value={searchParams.get('gender')}
     />
 
     <ButtonReset resetFilterValues={resetFilterValues}/>

@@ -1,3 +1,6 @@
+import '../../styles/FormComponents/ButtonReset.scss';
+
+
 const ButtonReset = (props) => {
   
   const handleClick = (ev) => {
@@ -5,8 +8,8 @@ const ButtonReset = (props) => {
     props.resetFilterValues();
   };
 
-  return <button type='button' onClick={handleClick} >
-      Resetear formulario
+  return <button type='button' onClick={handleClick} className='button--reset button' >
+      Limpiar formulario
     </button>
 
 };

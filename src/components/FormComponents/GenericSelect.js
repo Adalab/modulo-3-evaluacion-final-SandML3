@@ -1,3 +1,5 @@
+import '../../styles/FormComponents/GenericSelect.scss'; 
+
 
 const  GenericSelect = (props) => {
 
@@ -15,6 +17,7 @@ const  GenericSelect = (props) => {
     <label className={`main__filter__label--${props.name} label`} htmlFor={props.name}>{props.labelText}</label>
 
     <select
+    className={`main__filter__input--${props.name} input`}
     name={props.name}
     id={props.name}
     value={props.value}

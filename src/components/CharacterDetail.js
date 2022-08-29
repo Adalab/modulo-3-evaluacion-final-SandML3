@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom';
 import dictionary from '../data/translateDictionary.json'
+import '../styles/CardDetail.scss';
+import { LinkWithQuery } from './LinkWithQuery';
 
 
 
@@ -19,25 +20,26 @@ const  CharacterDetail = ( { characterFound } ) => {
     alive: dictionary.alive[characterFound.alive][characterFound.gender]
   }
   
-  return <>
-      <Link to='/'>Volver</Link>
-          
-      <div className="character__detail">
-          <section className='character__detail__card'>
-              <img className='character__detail__card__image' src={translatedCharacter.image} alt={`Imagen de ${translatedCharacter.name}`}  title={`Imagen de ${translatedCharacter.name}`}/>
-              <h3 className='character__detail__card__name'>{translatedCharacter.name}</h3>
+  return <div className='character__detail'>
+      <LinkWithQuery to='/'>Volver</LinkWithQuery>
+      
+        <div className='character__detail__card__house_image' style={{backgroundImage: `url('../images/${characterFound.house.toLowerCase()}.jpg')`}}></div>
+      
+        <section className='character__detail__card'>
+            <img className='character__detail__card__image' src={translatedCharacter.image} alt={`Imagen de ${translatedCharacter.name}`}  title={`Imagen de ${translatedCharacter.name}`}/>
+            <h3 className='character__detail__card__name'>{translatedCharacter.name}</h3>
 
-              <p className='character__detail__card__actor'>{translatedCharacter.alive}</p>
+            <p className='character__detail__card__actor'>{translatedCharacter.alive}</p>
 
-              <p className='character__detail__card__actor'>{translatedCharacter.actor}</p>
-              <a href={`https://es.wikipedia.org/wiki/${actorNameUrl}`}  target="_blank" rel="noopener noreferrer">Más información sobre {translatedCharacter.actor} </a>
-              <p className='character__detail__card__specie'>{translatedCharacter.species}</p>
-              <p className='character__detail__card__gender'>{translatedCharacter.gender}</p>
-              <p className='character__detail__card__house'>{translatedCharacter.house}</p>
-          
-          </section>
-      </div>
-    </>
+            <p className='character__detail__card__actor'>{translatedCharacter.actor}</p>
+            <a href={`https://es.wikipedia.org/wiki/${actorNameUrl}`}  target="_blank" rel="noopener noreferrer">Más información sobre {translatedCharacter.actor} </a>
+            <p className='character__detail__card__specie'>{translatedCharacter.species}</p>
+            <p className='character__detail__card__gender'>{translatedCharacter.gender}</p>
+            <p className='character__detail__card__house'>{translatedCharacter.house}</p>
+        
+        </section>
+     
+    </div>
 };
 
 

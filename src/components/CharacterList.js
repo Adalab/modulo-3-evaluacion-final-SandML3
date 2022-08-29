@@ -5,7 +5,7 @@ import '../styles/CharacterList.scss';
 
 
 
-const CharacterList = ( {characterData, updateFilterValues, searchParams}) => {
+const CharacterList = ( {characterData, updateFilterValues, searchParams }) => {
 
 
   //Alphabetical  order handler.
@@ -19,7 +19,7 @@ const CharacterList = ( {characterData, updateFilterValues, searchParams}) => {
     .filter(item => 
       searchParams.get('gender') === 'all'
         ?true
-        :item.gender ===searchParams.get('gender'))
+        :item.gender === searchParams.get('gender'))
       
     .filter(character => character.name.toLowerCase().includes(searchParams.get('name').toLowerCase()))
 
@@ -29,7 +29,9 @@ const CharacterList = ( {characterData, updateFilterValues, searchParams}) => {
         :character.house.toLowerCase().includes(searchParams.get('house').toLowerCase()))
 
     .map((character) => <li key={character.id} className='main__characters__list__item'>
-        <CharacterCard character={character} updateFilterValues={updateFilterValues}/>
+        <CharacterCard character={character} 
+        updateFilterValues={updateFilterValues}
+        />
     </li> );
 
   

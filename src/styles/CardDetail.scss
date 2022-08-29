@@ -1,0 +1,40 @@
+.character__detail {
+    display: flex;
+    // background-color: antiquewhite;
+    //     width: 50vw;
+    //     height: 50vh;
+    //     display: grid;
+    //     align-items: center;
+    //     justify-content: center;
+    //     position: relative;
+    //     margin: 10% auto;
+
+
+    //     border-radius: 1rem;
+    //     border: 1 px solid white;
+    //     background-color: rgba(255, 255, 255, 0.4);
+        // background: radial-gradient(circle, rgba(255,255,255,0.8) 5%, rgba(255,255,255,0.23853291316526615) 100%);
+    
+    
+
+    &__card {
+        // width: 100%;
+        // display: grid;
+        // grid-template-columns: repeat(2, 1fr);
+        // grid-template-rows: 5fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        // align-items: center;
+        // justify-content: center;
+        // margin-bottom: 4rem;
+
+        &__image {
+            // grid-row: span 8;
+        }
+
+        &__house_image {
+            height: 500px;
+            width: 500px;
+            
+        }
+        
+    }
+}

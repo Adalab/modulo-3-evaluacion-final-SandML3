@@ -19,15 +19,18 @@ function App() {
 
   const [characterData, setCharacterData] = useState(ls.get('characterData', []));
   
+  // const [ filterValues, setFilterValues ] = useState(ls.get ('filterValues', {}));
+
 
   const [searchParams, setSearchParams] = useSearchParams({
-      name: '',
-      house: 'gryffindor',
-      sort: false,
-      gender: 'all',
-      character: ''
-    });
+    name: '',
+    house: 'gryffindor',
+    sort: false,
+    gender: 'all',
+  //   character: ''
+  });
 
+  
 
   useEffect(() => {
     callToApi().then(response => {
@@ -42,18 +45,49 @@ function App() {
     ls.set('characterData', characterData);
   }, [characterData]);
 
-  useEffect(() => {
-    ls.set('filtersValues', searchParams);
-  }, [searchParams]);
 
+  // useEffect(() => {
+  //   ls.set('filterValues', filterValues);
+  // }, [filterValues]);
+
+
+
+  // useEffect(() => {
+  //   ls.set('searchParams', {
+  //     name: searchParams.get('name'),
+  //     house: searchParams.get('house'),
+  //     sort:  searchParams.get('sort'),
+  //     gender: searchParams.get('gender'),
+  //     // character:  searchParams.get('character')
+  //   });
+  // }, [searchParams]);
+  
 
   const updateFilterValues = (key, value) => {
     searchParams.set(key, value)
     setSearchParams(searchParams);
+    console.log('cambiando')
+
+    // setFilterValues({...filterValues, [key]:value})
   };
 
   const resetFilterValues = () => {
-    setSearchParams('')
+    console.log('reseteando')
+    setSearchParams({
+      name: '',
+      house: 'gryffindor',
+      sort: false,
+      gender: 'all',
+      // character: ''
+    });
+
+    // setFilterValues({
+    //   name: '',
+    //   house: 'gryffindor',
+    //   sort: false,
+    //   gender: 'all',
+    //   // character: ''
+    // })
   };
 
   const { pathname } = useLocation();
@@ -65,7 +99,6 @@ function App() {
     :null
 
   const characterFound = characterData.find(character => character.index.toString() === characterId);
-
 
 
   return (
@@ -82,12 +115,14 @@ function App() {
             characterData={characterData}
             updateFilterValues={updateFilterValues} 
             resetFilterValues={resetFilterValues}
-            searchParams={searchParams}/>
+            searchParams={searchParams}
+            />
 
             <CharacterList 
             characterData={characterData}  
             updateFilterValues={updateFilterValues}
-            searchParams={searchParams}/>
+            searchParams={searchParams}
+            />
 
           </main>
         </>}

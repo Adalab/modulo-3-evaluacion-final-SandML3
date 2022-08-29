@@ -1,5 +1,6 @@
+import '../../styles/FormComponents/AlphabeticalSort.scss'; 
 
-const  AlphabeticalSort = ({ handleInput,  searchParams, updateFilterValues }) => {
+const  AlphabeticalSort = ({ updateFilterValues, searchParams }) => {
    
     const value = searchParams.get('sort') === 'true'
       ?true
@@ -14,6 +15,7 @@ const  AlphabeticalSort = ({ handleInput,  searchParams, updateFilterValues }) =
       <label className='main__filter__label--sort label' htmlFor='name'>Ordenar alfabéticamente:</label>
 
       <input
+      className='main__filter__input--sort input'
       type='checkbox'
       name='sort'
       id='sort'

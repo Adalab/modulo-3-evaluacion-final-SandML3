@@ -1,18 +1,22 @@
 import { Link } from 'react-router-dom';
 import '../styles/CharacterCard.scss';
+import { LinkWithQuery } from './LinkWithQuery';
 
 
 
 const  CharacterCard = (props) => {
 
     
+    // const handleClick = (ev) => {
+    //    props.updateFilterValues('character', ev.currentTarget.id)
+    // }
 
-    const handleClick = (ev) => {
-       props.updateFilterValues('character', ev.target.id)
-    }
+    
 
 
-    return <Link  className='link' to={`/character/${props.character.index}`} onClick={handleClick} id={props.character.index}>
+    return <LinkWithQuery  className='link' to={`/character/${props.character.index}`} 
+    // onClick={handleClick} 
+    id={props.character.index}>
         <section className='main__character__list__card'>
             <div className="main__character__list__card__image--wrapper">
                 <img className='main__character__list__card__image' src={props.character.image} alt={`Imagen de ${props.character.name}`}  title={`Imagen de ${props.character.name}`}/>
@@ -24,7 +28,7 @@ const  CharacterCard = (props) => {
             </div>
         </section>
             
-    </Link>
+    </LinkWithQuery>
 };
 
 
