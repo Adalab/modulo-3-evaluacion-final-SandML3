@@ -7,7 +7,7 @@ import '../styles/Form.scss'
 
 const  Form = (props) => {
     
-  const { updateFilterValues, resetFilterValues, filterValues, searchParams } = props;
+  const { updateFilterValues, resetFilterValues, searchParams } = props;
 
 
     return <form className='main__filters'>

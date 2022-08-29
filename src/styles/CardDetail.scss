@@ -1,40 +1,89 @@
 .character__detail {
-    display: flex;
-    // background-color: antiquewhite;
-    //     width: 50vw;
-    //     height: 50vh;
-    //     display: grid;
-    //     align-items: center;
-    //     justify-content: center;
-    //     position: relative;
-    //     margin: 10% auto;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
 
-
-    //     border-radius: 1rem;
-    //     border: 1 px solid white;
-    //     background-color: rgba(255, 255, 255, 0.4);
-        // background: radial-gradient(circle, rgba(255,255,255,0.8) 5%, rgba(255,255,255,0.23853291316526615) 100%);
+    &__button--home {
+        color: white;
+        font-size: 1.2rem;
+        padding: 2rem;
+        position: relative;
+        bottom: 4rem;
+        right: 10rem;
     
-    
+    }
 
     &__card {
-        // width: 100%;
-        // display: grid;
-        // grid-template-columns: repeat(2, 1fr);
-        // grid-template-rows: 5fr 1fr 1fr 1fr 1fr 1fr 1fr;
-        // align-items: center;
-        // justify-content: center;
-        // margin-bottom: 4rem;
+        width: 50rem;
+        height: 50rem;
+        background-color: aliceblue;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr 2fr 0.3fr 0.3fr 0.3fr 0.3fr 0.3fr 0.3fr;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1rem;
+        overflow: hidden;
+        background: rgb(24, 26, 36);
+        filter: drop-shadow(0px 4px 15px rgba(9, 9, 10, 0.575));
+        
 
         &__image {
-            // grid-row: span 8;
+            grid-column: 1;
+            grid-row: span 8;
+            width: 20rem;
+            margin: 0 auto;
+
         }
 
         &__house_image {
-            height: 500px;
-            width: 500px;
+            height: 350px;
+            width: 50rem;
+            grid-column: span 3;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: saturate(0.5);
             
         }
-        
+
+        &__name {
+            grid-column: 2;
+            color: white;
+            font-size: 1.5rem;
+ 
+         }
+
+        &__text {
+           grid-column: 2;
+
+        }
+
+        // &__alive {
+        //     grid-column: 2;
+ 
+        //  }
+
+        //  &__actor {
+        //     grid-column: 2;
+ 
+        //  }
+
+        //  &__specie {
+        //     grid-column: 2;
+ 
+        //  }
+
+        //  &__house {
+        //     grid-column: 2;
+ 
+        //  }
+
+        //  &__gender {
+        //     grid-column: 2;
+ 
+        //  }
+
     }
 }

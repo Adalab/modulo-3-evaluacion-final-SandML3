@@ -66,13 +66,10 @@ function App() {
   const updateFilterValues = (key, value) => {
     searchParams.set(key, value)
     setSearchParams(searchParams);
-    console.log('cambiando')
-
     // setFilterValues({...filterValues, [key]:value})
   };
 
   const resetFilterValues = () => {
-    console.log('reseteando')
     setSearchParams({
       name: '',
       house: 'gryffindor',
