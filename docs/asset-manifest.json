@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "./static/css/main.dc84bebb.css",
-    "main.js": "./static/js/main.bb866cdf.js",
+    "main.js": "./static/js/main.1e46ebc7.js",
     "static/media/Quicksand.ttf": "./static/media/Quicksand.cf52df73d8529b4815ed.ttf",
     "static/media/notFound.png": "./static/media/notFound.8e091f5052c93edfd609.png",
     "static/media/HarryPotterFont.ttf": "./static/media/HarryPotterFont.a65869c0c1a4b3d4fcfc.ttf",
     "index.html": "./index.html",
     "main.dc84bebb.css.map": "./static/css/main.dc84bebb.css.map",
-    "main.bb866cdf.js.map": "./static/js/main.bb866cdf.js.map"
+    "main.1e46ebc7.js.map": "./static/js/main.1e46ebc7.js.map"
   },
   "entrypoints": [
     "static/css/main.dc84bebb.css",
-    "static/js/main.bb866cdf.js"
+    "static/js/main.1e46ebc7.js"
   ]
 }
