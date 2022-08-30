@@ -66,7 +66,7 @@ function App() {
     ?dataPath.params.characterId 
     :dataPath
 
-    return characterData.find(character => character.index.toString() === characterId);
+    return characterData.find(character => character.index === parseInt(characterId));
   }
   
 

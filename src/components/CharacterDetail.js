@@ -1,5 +1,11 @@
 import dictionary from '../data/translateDictionary.json'
 import '../styles/CardDetail.scss';
+
+import gryffindor from '../images/gryffindor.jpg';
+import ravenclaw from '../images/ravenclaw.jpg';
+import hufflepuff from '../images/hufflepuff.jpg';
+import slytherin from '../images/slytherin.jpg';
+
 import { LinkWithQuery } from './Custom Hook/LinkWithQuery';
 
 
@@ -29,15 +35,24 @@ const  CharacterDetail = ( { characterFound } ) => {
     ?<p className='character__detail__card__alternate_names'>Nombres alternativos: {characterFound.alternate_names}</p>
     :<p className='character__detail__card__alternate_names'>Este personaje no posee nombres alternativos.</p>
 
+
+  const getBackground = characterFound.house.toLowerCase() === 'gryffindor'
+      ?gryffindor
+      :characterFound.house.toLowerCase() === 'gryffindor'
+        ?ravenclaw
+        :characterFound.house.toLowerCase() === 'gryffindor'
+          ?slytherin
+          :hufflepuff;
+  
   
   return <div className='character__detail'>
 
-      <LinkWithQuery to='/' className='character__detail__button--home button link'><i class="fa-solid fa-caret-left"></i>  Volver al inicio</LinkWithQuery>
+      <LinkWithQuery to='/' className='character__detail__button--home button link'><i className="fa-solid fa-caret-left"></i>  Volver al inicio</LinkWithQuery>
       
       <section className='character__detail__card'>
         <div 
           className='character__detail__card__house_image' 
-          style={{backgroundImage: `url('../images/${characterFound.house.toLowerCase()}.jpg')`}}>
+          style={{backgroundImage: `url(${getBackground})`}}>
         </div>
 
         <img 
@@ -49,7 +64,7 @@ const  CharacterDetail = ( { characterFound } ) => {
 
         <h3 className='character__detail__card__name'>{translatedCharacter.name}</h3>
 
-        <div class="character__detail__card__text">
+        <div className="character__detail__card__text">
           {alternativeNames}
 
           <p className='character__detail__card__alive'>Estatus:  {translatedCharacter.alive} {isAlive}</p>
