@@ -64,7 +64,7 @@ function App() {
   const getCharacter = () => {
     const characterId = dataPath !== null 
     ?dataPath.params.characterId 
-    :null
+    :dataPath
 
     return characterData.find(character => character.index.toString() === characterId);
   }

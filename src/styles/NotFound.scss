@@ -1,0 +1,26 @@
+.not_found {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+    &__image {
+        width: 100%;
+        max-width: 1000px ;
+    }
+
+    &__link {
+        background-color: white;
+        padding: 0.5rem;
+        border-radius: 1rem;
+        color: grey;
+
+        &:hover {
+            transform: scale(1.1);
+            background-color: rgba(255, 255, 255, 0.459);
+            color: black;
+            transition: all 0.8s;
+        }
+
+    }
+}

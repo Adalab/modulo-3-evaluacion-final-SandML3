@@ -14,9 +14,12 @@ const  FilterName = ({ updateFilterValues, searchParams }) => {
   };
 
   return <div className='main__filter--name filter'>
+
     <label className='main__filter__label--name label' htmlFor='name'>Buscar personajes por nombre:</label>
+
     <input
     className='main__filter__input--name input'
+    placeholder='Ej: Sirius Black'
     type='text'
     name='name'
     id='name'

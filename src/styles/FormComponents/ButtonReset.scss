@@ -9,4 +9,24 @@
     color: white;
     letter-spacing: 0.08rem;
     margin-top: 2rem;
+
+    &:hover {
+        transform: scale(1.1);
+        background-color: rgb(255, 230, 89);
+        color: rgba(0, 0, 0, 0.712);
+        transition: all 500ms;
+        position: relative;
+        top: 0.5rem;
+        animation: button-hover 500ms ;  
+
+        @keyframes button-hover {
+        0% {
+            bottom: 0.5rem;
+        }
+        50% {
+            bottom: 0rem;
+            background-color: rgb(255, 253, 137);
+        } 
+        }
+    }
 }

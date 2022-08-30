@@ -1,12 +1,13 @@
-import { Link } from 'react-router-dom';
-// import PageNotFound from '../assets/images/PageNotFound';
+import { LinkWithQuery } from './Custom Hook/LinkWithQuery';
+import notFound from '../images/notFound.png';
+import '../styles/NotFound.scss';
 
 
 const NotFound = () => {
-    return <div>
-        {/* <img src={PageNotFound}  /> */}
+    return <div className='not_found'>
+        <img className='not_found__image' src={notFound} title='' alt='' /> 
         <p style={{textAlign:"center"}}>
-            <Link to="/">Volver al inicio </Link>
+            <LinkWithQuery to="/" className='not_found__link link'>Volver al inicio </LinkWithQuery>
         </p>
         </div>
 }
