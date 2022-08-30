@@ -13,6 +13,7 @@ import Form from './Form';
 import CharacterList from './CharacterList';
 import CharacterDetail from './CharacterDetail';
 import NotFound from './NotFound';
+import CharacterNotExist from './CharacterNotExist';
 
 
 function App() {
@@ -104,7 +105,7 @@ function App() {
         path='/character/:characterId' 
          element={getCharacter() 
             ?<CharacterDetail characterData={characterData} characterFound={getCharacter()} />
-            :<p>El personaje que buscas no existe</p>
+            :<CharacterNotExist />
         }
         />
 
