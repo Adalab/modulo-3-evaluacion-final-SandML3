@@ -1,4 +1,4 @@
-import '../../styles/FormComponents/AlphabeticalSort.scss'; 
+
 
 const  AlphabeticalSort = ({ updateFilterValues, searchParams }) => {
    

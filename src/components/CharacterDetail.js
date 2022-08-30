@@ -32,7 +32,7 @@ const  CharacterDetail = ( { characterFound } ) => {
   
   return <div className='character__detail'>
 
-      <LinkWithQuery to='/' className='character__detail__button--home button link'>Volver</LinkWithQuery>
+      <LinkWithQuery to='/' className='character__detail__button--home button link'><i class="fa-solid fa-caret-left"></i>  Volver al inicio</LinkWithQuery>
       
       <section className='character__detail__card'>
         <div 

@@ -1,24 +1,49 @@
 .loader__container {
-  width: 50rem;
+  width: 100%;
   height: auto;
   overflow: hidden;
+  position: relative;
+  
+
+  @media all and (min-width: 768px) {
+    width: 80vw;
+    height: auto;
+    overflow: hidden;
+  }
 }
 
 .lds-ellipsis {
     display: inline-block;
     position: relative;
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     left: 45%;
-    top: 15rem;
-    
+    top: 10rem;
+
+    @media all and (min-width: 768px) {
+      width: 80px;
+      height: 80px;
+      left: 54%;
+      top: 13rem;
+    }
+
+    @media all and (min-width: 1200px) {
+      left: 59%;
+    }
   }
 
   .owl {
-    width: 55rem;
+    width: 40rem;
     position: relative;
-    right: 22.5rem;
-    bottom: 26.5rem;
+    right: 16rem;
+    bottom: 18.5rem;
+
+    @media all and (min-width: 768px) {
+      width: 55rem;
+      position: relative;
+      right: 22.5rem;
+      bottom: 26.5rem;
+    }
   }
   
   .lds-ellipsis div {

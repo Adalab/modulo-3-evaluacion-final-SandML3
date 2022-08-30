@@ -1,4 +1,3 @@
-import '../../styles/FormComponents/GenericSelect.scss'; 
 
 
 const  GenericSelect = (props) => {

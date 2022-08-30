@@ -1,4 +1,3 @@
-import '../../styles/FormComponents/FilterName.scss';
 
 
 const  FilterName = ({ updateFilterValues, searchParams }) => {

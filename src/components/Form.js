@@ -12,6 +12,11 @@ const  Form = (props) => {
 
     return <form className='main__filters'>
        
+       <AlphabeticalSort 
+    updateFilterValues={updateFilterValues}
+    searchParams={searchParams}
+    />
+
     <FilterName 
     updateFilterValues={updateFilterValues}
     searchParams={searchParams}
@@ -23,12 +28,6 @@ const  Form = (props) => {
     labelText='Selecciona la casa:'
     updateFilterValues={updateFilterValues}
     value={searchParams.get('house')}
-    />
-
-
-    <AlphabeticalSort 
-    updateFilterValues={updateFilterValues}
-    searchParams={searchParams}
     />
 
     <GenericSelect 
