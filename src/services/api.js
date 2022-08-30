@@ -1,4 +1,6 @@
 
+import characterPic from '../images/characterPic.png'
+
 const callToApi = () => {
    
     return fetch('https://hp-api.herokuapp.com/api/characters')
@@ -9,7 +11,8 @@ const callToApi = () => {
             house: item.house,
             image: item.image
               ?item.image
-              :'https://via.placeholder.com/210x295/ffffff/666666/?text=HarryPotter',
+              :characterPic,
+              // 'https://via.placeholder.com/210x295/ffffff/666666/?text=HarryPotter',
             alive: item.alive,
             species: item.species,
             gender: item.gender,
