@@ -1,4 +1,4 @@
-
+import PropTypes from 'prop-types';
 
 const  AlphabeticalSort = ({ updateFilterValues, searchParams }) => {
    
@@ -26,5 +26,10 @@ const  AlphabeticalSort = ({ updateFilterValues, searchParams }) => {
     </div>
   };
   
+
+  AlphabeticalSort.propTypes = {
+    updateFilterValues: PropTypes.func.isRequired,
+    searchParams: PropTypes.objectOf(PropTypes.number)
+  };
   
   export default AlphabeticalSort; 

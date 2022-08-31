@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 
 const  GenericSelect = (props) => {
 
@@ -28,5 +29,14 @@ const  GenericSelect = (props) => {
   </div> 
 };
 
+
+GenericSelect.propTypes = {
+  name: PropTypes.string.isRequired,
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
+  values: PropTypes.arrayOf(PropTypes.string).isRequired,
+  labelText: PropTypes.string.isRequired,
+  updateFilterValues: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired
+}
 
 export default GenericSelect;

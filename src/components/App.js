@@ -29,8 +29,6 @@ function App() {
     gender: 'all',
   });
 
- 
-
   useEffect(() => {
     setLoading(true);
     callToApi().then(response => {

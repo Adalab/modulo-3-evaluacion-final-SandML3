@@ -1,4 +1,5 @@
 import '../styles/CardDetail.scss';
+import PropTypes from 'prop-types';
 import getRenderData from '../services/dataProcesing';
 import { LinkWithQuery } from '../services/LinkWithQuery';
 
@@ -52,17 +53,9 @@ const  CharacterDetail = ( { characterFound } ) => {
 };
 
 
-// CharacterDetail.defaultProps = {
-//   characterFound: {
-//     actor: "Daniel Radcliffe",
-//     alive: true,
-//     gender: "male",
-//     house: "Gryffindor",
-//     id: "4c7e4d-0e56-1d8d-e077-f6ec01e565",
-//     image: "http://hp-api.herokuapp.com/images/harry.jpg",
-//     name: "Harry Potter",
-//     species: "human"
-//   },
-// };
+CharacterDetail.propTypes = {
+  characterData: PropTypes.array(PropTypes.object).isRequired,
+  characterFound: PropTypes.object.isRequired
+}
 
 export default CharacterDetail;

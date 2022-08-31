@@ -1,4 +1,5 @@
 import '../../../styles/Form/FormComponents/ButtonReset.scss';
+import PropTypes from 'prop-types';
 
 
 const ButtonReset = (props) => {
@@ -13,5 +14,10 @@ const ButtonReset = (props) => {
     </button>
 
 };
+
+
+ButtonReset.propType = {
+  resetFilterValues: PropTypes.func.isRequired,
+}
 
 export default ButtonReset;

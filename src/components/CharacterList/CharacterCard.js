@@ -1,6 +1,6 @@
 import '../../styles/List/CharacterCard.scss';
 import { LinkWithQuery } from '../../services/LinkWithQuery';
-
+import PropTypes from 'prop-types';
 
 
 const  CharacterCard = (props) => {
@@ -23,5 +23,10 @@ const  CharacterCard = (props) => {
     </LinkWithQuery>
 };
 
+
+CharacterCard.propTypes = {
+    character: PropTypes.object.isRequired,
+    updateFilterValues: PropTypes.func.isRequired
+};
 
 export default CharacterCard;

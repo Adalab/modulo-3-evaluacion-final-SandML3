@@ -2,7 +2,10 @@ import FilterName from './FormComponents/FilterName';
 import AlphabeticalSort from './FormComponents/AlphabeticalSort';
 import ButtonReset from './FormComponents/ButtonReset';
 import GenericSelect from './FormComponents/GenericSelect';
-import '../../styles/Form/Form.scss'
+import '../../styles/Form/Form.scss';
+
+import PropTypes from 'prop-types';
+
 
 
 const  Form = (props) => {
@@ -43,6 +46,13 @@ const  Form = (props) => {
 
   </form>
 };
+
+Form.propTypes = {
+  characterData: PropTypes.arrayOf(PropTypes.object).isRequired,
+  updateFilterValues: PropTypes.func.isRequired, 
+  resetFilterValues: PropTypes.func.isRequired, 
+  searchParams: PropTypes.objectOf(PropTypes.string).isRequired
+}
 
 
 export default Form;

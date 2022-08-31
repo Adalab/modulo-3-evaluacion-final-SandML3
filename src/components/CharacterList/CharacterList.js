@@ -4,6 +4,7 @@ import CharacterNotFound from '../Warnings/CharacterNotFound';
 import '../../styles/List/CharacterList.scss';
 import Loader from '../Loader'
 
+import PropTypes from 'prop-types';
 
 
 const CharacterList = ( {characterData, updateFilterValues, searchParams, loading }) => {
@@ -39,7 +40,9 @@ const CharacterList = ( {characterData, updateFilterValues, searchParams, loadin
   //Empty list warning.
   const isEmptyRender = renderCharacters.length !== 0
         ?renderCharacters
-        :<CharacterNotFound searchParams={searchParams}/>
+        :<CharacterNotFound 
+        name={searchParams.get('name')}
+        />
 
 
   const renderCharacterList = loading
@@ -54,5 +57,12 @@ const CharacterList = ( {characterData, updateFilterValues, searchParams, loadin
     </section> 
 };
 
+
+CharacterList.propTypes = {
+  characterData: PropTypes.arrayOf(PropTypes.object).isRequired, 
+  updateFilterValues: PropTypes.func.isRequired,
+  searchParams: PropTypes.objectOf(PropTypes.string).isRequired,
+  loading: PropTypes.bool.isRequired
+}
 
 export default CharacterList;
