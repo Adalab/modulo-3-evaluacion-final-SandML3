@@ -1,50 +1,13 @@
-import dictionary from '../data/translateDictionary.json'
 import '../styles/CardDetail.scss';
-
-import gryffindor from '../images/gryffindor.jpg';
-import ravenclaw from '../images/ravenclaw.jpg';
-import hufflepuff from '../images/hufflepuff.jpg';
-import slytherin from '../images/slytherin.jpg';
-
-import { LinkWithQuery } from './Custom Hook/LinkWithQuery';
-
+import getRenderData from '../services/dataProcesing';
+import { LinkWithQuery } from '../services/LinkWithQuery';
 
 
 const  CharacterDetail = ( { characterFound } ) => {
 
-  const actorNameUrl = characterFound.actor.replace(/ /g, "_")
-
-  const translatedCharacter = {
-    image: characterFound.image,
-    name: characterFound.name,
-    actor: characterFound.actor,
-    house: characterFound.house,
-    gender: dictionary.gender[characterFound.gender],
-    species: characterFound.species === 'human'
-      ?dictionary.species[characterFound.species][characterFound.gender]
-      :dictionary.species[characterFound.species],
-    alive: dictionary.alive[characterFound.alive][characterFound.gender],
-  }
-
-  const isAlive = characterFound.alive
-      ?<i className='fa-solid fa-heart-circle-bolt'></i>
-      :<i className='fa-solid fa-skull'></i>
-  
-
-  const alternativeNames = characterFound.alternate_names.length !== 0
-    ?<p className='character__detail__card__alternate_names'>Nombres alternativos: {characterFound.alternate_names}</p>
-    :<p className='character__detail__card__alternate_names'>Este personaje no posee nombres alternativos.</p>
+  const character= getRenderData(characterFound);
 
 
-  const getBackground = characterFound.house.toLowerCase() === 'gryffindor'
-      ?gryffindor
-      :characterFound.house.toLowerCase() === 'gryffindor'
-        ?ravenclaw
-        :characterFound.house.toLowerCase() === 'gryffindor'
-          ?slytherin
-          :hufflepuff;
-  
-  
   return <div className='character__detail'>
 
       <LinkWithQuery to='/' className='character__detail__button--home button link'><i className="fa-solid fa-caret-left"></i>  Volver al inicio</LinkWithQuery>
@@ -52,36 +15,36 @@ const  CharacterDetail = ( { characterFound } ) => {
       <section className='character__detail__card'>
         <div 
           className='character__detail__card__house_image' 
-          style={{backgroundImage: `url(${getBackground})`}}>
+          style={{backgroundImage: `url(${character.background})`}}>
         </div>
 
         <img 
           className='character__detail__card__image' 
-          src={translatedCharacter.image} 
-          alt={`Imagen de ${translatedCharacter.name}`}  
-          title={`Imagen de ${translatedCharacter.name}`}
+          src={character.data.image} 
+          alt={`Imagen de ${character.data.name}`}  
+          title={`Imagen de ${character.data.name}`}
         />
 
-        <h3 className='character__detail__card__name'>{translatedCharacter.name}</h3>
+        <h3 className='character__detail__card__name'>{character.data.name}</h3>
 
         <div className="character__detail__card__text">
-          {alternativeNames}
+          {character.alternativeNames}
 
-          <p className='character__detail__card__alive'>Estatus:  {translatedCharacter.alive} {isAlive}</p>
+          {character.isAlive}
 
-          <p className='character__detail__card__actor'>Actor: {translatedCharacter.actor}</p>
+          <p className='character__detail__card__actor'>Actor: {character.data.actor}</p>
 
           <a 
-          href={`https://es.wikipedia.org/wiki/${actorNameUrl}`}  target="_blank" 
+          href={`https://es.wikipedia.org/wiki/${character.actorNameUrl}`}  target="_blank" 
           rel="noopener noreferrer" className='character__detail__card__actor--wiki link'>
-            Click aquí para información sobre {translatedCharacter.actor} 
+            Click aquí para información sobre {character.data.actor} 
           </a>
 
-          <p className='character__detail__card__specie'>Especie: {translatedCharacter.species}</p>
+          {character.species}
 
-          <p className='character__detail__card__gender'>Género:{translatedCharacter.gender}</p>
+          <p className='character__detail__card__gender'>Género: {character.data.gender}</p>
 
-          <p className='character__detail__card__house'>Casa: {translatedCharacter.house}</p>
+          <p className='character__detail__card__house'>Casa: {character.data.house}</p>
 
         </div>
       </section>

@@ -1,6 +1,6 @@
+import PropTypes from 'prop-types';
 
-
-const  FilterName = ({ updateFilterValues, searchParams }) => {
+const  FilterName = ({ updateFilterValues, searchParams }, ...props) => {
 
 
   const handleInputName = (ev) => {
@@ -20,7 +20,7 @@ const  FilterName = ({ updateFilterValues, searchParams }) => {
     <input
     className='main__filter__input--name input'
     placeholder='Ej: Sirius Black'
-    type='text'
+    type={props.inputType}
     name='name'
     id='name'
     value={searchParams.get('name')}
@@ -30,5 +30,15 @@ const  FilterName = ({ updateFilterValues, searchParams }) => {
   </div>
 };
 
+FilterName.defaultProps = {
+  inputType: 'text',
+}
+
+
+FilterName.propTypes = {
+  type: PropTypes.string,
+  updateFilterValues: PropTypes.func.isRequired,
+  searchParams: PropTypes.objectOf(PropTypes.string).isRequired
+};
 
 export default FilterName; 

@@ -1,7 +1,7 @@
 
 @font-face {
     font-family: 'HarryPotterFont';
-    src: url('./HarryPotterFont.ttf') format('truetype');
+    src: url('./Fonts/HarryPotterFont.ttf') format('truetype');
   }
   
 
@@ -11,11 +11,15 @@
 
     &__title {
         font-family: 'HarryPotterFont', sans-serif;
-        font-size: 10rem;
+        font-size: 9rem;
         letter-spacing: 0.2rem;
         text-align: center;
         margin: 5rem auto;
         color: rgb(196, 159, 40);
+
+        @media all and (min-width: 768px) {
+            font-size: 10rem;
+        }
     }
 
     &__paragraph {

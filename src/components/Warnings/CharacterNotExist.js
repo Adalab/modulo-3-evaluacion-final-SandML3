@@ -1,5 +1,5 @@
-import { LinkWithQuery } from './Custom Hook/LinkWithQuery';
-import '../styles/CharacterNotExist.scss'
+import { LinkWithQuery } from '../../services/LinkWithQuery';
+import '../../styles/Warnings/CharacterNotExist.scss'
 
 
 const CharacterNotExist = () => {

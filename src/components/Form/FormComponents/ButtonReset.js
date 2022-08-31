@@ -1,4 +1,4 @@
-import '../../styles/FormComponents/ButtonReset.scss';
+import '../../../styles/Form/FormComponents/ButtonReset.scss';
 
 
 const ButtonReset = (props) => {

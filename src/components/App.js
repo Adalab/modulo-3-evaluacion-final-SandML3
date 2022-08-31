@@ -9,11 +9,11 @@ import { useLocation, matchPath } from 'react-router-dom';
 import uuid from 'react-uuid';
 
 import Header from './Header';
-import Form from './Form';
-import CharacterList from './CharacterList';
+import Form from './Form/Form';
+import CharacterList from './CharacterList/CharacterList';
 import CharacterDetail from './CharacterDetail';
-import NotFound from './NotFound';
-import CharacterNotExist from './CharacterNotExist';
+import NotFound from './Warnings/NotFound';
+import CharacterNotExist from './Warnings/CharacterNotExist';
 
 
 function App() {
@@ -29,6 +29,7 @@ function App() {
     gender: 'all',
   });
 
+ 
 
   useEffect(() => {
     setLoading(true);
@@ -63,14 +64,12 @@ function App() {
   const dataPath = matchPath('character/:characterId', pathname)
 
   const getCharacter = () => {
-    const characterId = dataPath !== null 
+    const characterId = dataPath
     ?dataPath.params.characterId 
     :dataPath
 
     return characterData.find(character => character.index === parseInt(characterId));
   }
-  
-
 
  
   return (

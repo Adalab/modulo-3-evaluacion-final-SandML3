@@ -1,4 +1,4 @@
-import '../styles/CharacterNotFound.scss';
+import '../../styles/Warnings/CharacterNotFound.scss';
 
 const CharacterNotFound = (props) => {
   return <div className='characterNotFound'>

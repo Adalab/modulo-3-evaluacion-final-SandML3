@@ -1,8 +1,8 @@
 
-import CharacterCard from './CharacterCard';
-import CharacterNotFound from './CharacterNotFound';
-import '../styles/CharacterList.scss';
-import Loader from './Loader'
+import CharacterCard from '../CharacterList/CharacterCard';
+import CharacterNotFound from '../Warnings/CharacterNotFound';
+import '../../styles/List/CharacterList.scss';
+import Loader from '../Loader'
 
 
 

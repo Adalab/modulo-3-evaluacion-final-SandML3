@@ -1,6 +1,6 @@
-import { LinkWithQuery } from './Custom Hook/LinkWithQuery';
-import notFound from '../images/notFound.png';
-import '../styles/NotFound.scss';
+import { LinkWithQuery } from '../../services/LinkWithQuery';
+import notFound from '../../images/notFound.png';
+import '../../styles/Warnings/NotFound.scss';
 
 
 const NotFound = () => {

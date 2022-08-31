@@ -2,7 +2,7 @@ import FilterName from './FormComponents/FilterName';
 import AlphabeticalSort from './FormComponents/AlphabeticalSort';
 import ButtonReset from './FormComponents/ButtonReset';
 import GenericSelect from './FormComponents/GenericSelect';
-import '../styles/Form.scss'
+import '../../styles/Form/Form.scss'
 
 
 const  Form = (props) => {
