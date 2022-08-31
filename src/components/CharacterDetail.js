@@ -31,7 +31,7 @@ const  CharacterDetail = ( { characterFound } ) => {
       :<i className='fa-solid fa-skull'></i>
   
 
-  const alternativeNames = characterFound.alternativeNames
+  const alternativeNames = characterFound.alternate_names.length !== 0
     ?<p className='character__detail__card__alternate_names'>Nombres alternativos: {characterFound.alternate_names}</p>
     :<p className='character__detail__card__alternate_names'>Este personaje no posee nombres alternativos.</p>
 

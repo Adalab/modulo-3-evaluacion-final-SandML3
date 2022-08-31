@@ -12,7 +12,6 @@ const callToApi = () => {
             image: item.image
               ?item.image
               :characterPic,
-              // 'https://via.placeholder.com/210x295/ffffff/666666/?text=HarryPotter',
             alive: item.alive,
             species: item.species,
             gender: item.gender,
