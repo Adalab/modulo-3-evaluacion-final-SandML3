@@ -19,6 +19,11 @@ const CharacterList = ( {characterData, updateFilterValues, searchParams, loadin
   //Characters map and render.
   const renderCharacters = character
     .filter(item => 
+      searchParams.get('species') === 'all'
+        ?true
+        :item.species === searchParams.get('species'))
+
+    .filter(item => 
       searchParams.get('gender') === 'all'
         ?true
         :item.gender === searchParams.get('gender'))

@@ -27,6 +27,7 @@ function App() {
     house: 'gryffindor',
     sort: false,
     gender: 'all',
+    species: 'all'
   });
 
   useEffect(() => {
@@ -54,7 +55,8 @@ function App() {
       name: '',
       house: 'gryffindor',
       sort: false,
-      gender: 'all'
+      gender: 'all',
+      species: 'all'
     });
   };
 

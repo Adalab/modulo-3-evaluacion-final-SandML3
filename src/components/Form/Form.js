@@ -5,14 +5,14 @@ import GenericSelect from './FormComponents/GenericSelect';
 import '../../styles/Form/Form.scss';
 
 import PropTypes from 'prop-types';
+import FilterSpecies from './FormComponents/FilterSpecies';
 
 
 
-const  Form = (props) => {
+const  Form = ({ updateFilterValues, resetFilterValues, searchParams, characterData }) => {
     
-  const { updateFilterValues, resetFilterValues, searchParams } = props;
-
-
+  const  getAllSpecies = [...new Set (characterData.map(item => item.species))];
+  
     return <form className='main__filters'>
        
        <AlphabeticalSort 
@@ -40,6 +40,12 @@ const  Form = (props) => {
     labelText='Seleccionar por género:'  
     updateFilterValues={updateFilterValues}
     value={searchParams.get('gender')}
+    />
+
+    <FilterSpecies 
+    updateFilterValues={updateFilterValues}
+    searchParams={searchParams}
+    species={getAllSpecies}
     />
 
     <ButtonReset resetFilterValues={resetFilterValues}/>

@@ -54,7 +54,7 @@ const  CharacterDetail = ( { characterFound } ) => {
 
 
 CharacterDetail.propTypes = {
-  characterData: PropTypes.array(PropTypes.object).isRequired,
+  characterData: PropTypes.arrayOf(PropTypes.object).isRequired,
   characterFound: PropTypes.object.isRequired
 }
 
