@@ -17,6 +17,7 @@ const CharacterList = ( {characterData, updateFilterValues, searchParams, loadin
 
   //Characters map and render.
   const renderCharacters = character
+    .filter(item => item.alive.toString() === searchParams.get('state'))
     .filter(item => 
       searchParams.get('gender') === 'all'
         ?true

@@ -27,6 +27,7 @@ function App() {
     house: 'gryffindor',
     sort: false,
     gender: 'all',
+    state: 'true',
   });
 
 
@@ -55,7 +56,8 @@ function App() {
       name: '',
       house: 'gryffindor',
       sort: false,
-      gender: 'all'
+      gender: 'all',
+      state: 'true',
     });
   };
 

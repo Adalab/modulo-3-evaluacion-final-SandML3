@@ -2,6 +2,7 @@ import FilterName from './FormComponents/FilterName';
 import AlphabeticalSort from './FormComponents/AlphabeticalSort';
 import ButtonReset from './FormComponents/ButtonReset';
 import GenericSelect from './FormComponents/GenericSelect';
+import FilterAlive from './FormComponents/FilterAlive';
 import '../styles/Form.scss'
 
 
@@ -38,6 +39,10 @@ const  Form = (props) => {
     updateFilterValues={updateFilterValues}
     value={searchParams.get('gender')}
     />
+
+    <FilterAlive 
+    updateFilterValues={updateFilterValues} 
+    searchParams={searchParams}/>
 
     <ButtonReset resetFilterValues={resetFilterValues}/>
 
